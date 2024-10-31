@@ -1,13 +1,11 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "@/lib/type";
 import clsx from "clsx";
 import NextLink from "next/link";
 import Hamburger from "hamburger-react";
 import { useActiveSectionContext } from "@/containers/active-section";
-
-// Animation
 import { AnimatePresence, motion } from "framer-motion";
 
 type HamburgerMenuProps = { links: Link[] };
@@ -15,45 +13,47 @@ type HamburgerMenuProps = { links: Link[] };
 const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
     const [isOpen, setIsOpen] = useState(false);
     const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
-    const menuRef = useRef<HTMLDivElement>(null);
 
     const menuTrigger = {
         visible: { scale: 1, opacity: 0.7, y: 0 },
         tap: { scale: 0.85 },
-        hover: { scale: 1.2 }
+        hover: { scale: 1.2 },
     };
     const menuList = {
         start: { scale: 0.6, opacity: 0.7, y: -20 },
-        visible: { scale: 1, opacity: 0.9, y: 0 }
+        visible: { scale: 1, opacity: 0.9, y: 0 },
     };
 
-    // Close menu when clicking outside of it
+    // Effect for detecting clicks outside of the menu
     useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        function handleClickOutside(event: MouseEvent) {
+            if (!(event.target as HTMLElement).closest(".hamburger-menu")) {
                 setIsOpen(false);
             }
-        };
+        }
 
-        document.addEventListener("mousedown", handleClickOutside);
+        if (isOpen) {
+            document.addEventListener("click", handleClickOutside);
+        } else {
+            document.removeEventListener("click", handleClickOutside);
+        }
+
         return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("click", handleClickOutside);
         };
-    }, []);
+    }, [isOpen]);
 
     return (
         <div
-            ref={menuRef}
-            className="md:hidden top-5 right-5 fixed w-60 z-[999] flex flex-col items-end gap-2"
+            className="hamburger-menu md:hidden top-5 right-5 fixed w-60 z-[999] flex flex-col items-end gap-2"
         >
             <motion.button
                 variants={menuTrigger}
                 initial="visible"
                 whileTap="tap"
                 whileHover="hover"
-                className="bg-white w-[3rem] h-[3rem] drop-shadow backdrop-blur-[0.5rem]
-                border border-slate-400 dark:border-white border-opacity-40 shadow-2xl
-                rounded-full flex items-center justify-center dark:bg-gray-950"
+                className="bg-white w-[3rem] h-[3rem] drop-shadow backdrop-blur-[0.5rem] border border-slate-400 dark:border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center dark:bg-gray-950"
+                onClick={() => setIsOpen((prev) => !prev)}
             >
                 <Hamburger toggled={isOpen} toggle={setIsOpen} size={20} />
             </motion.button>
@@ -63,9 +63,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
                         variants={menuList}
                         initial="start"
                         animate="visible"
-                        className="w-full bg-white drop-shadow border border-slate-400
-                        dark:border-white border-opacity-60 shadow-2xl rounded-2xl flex
-                        flex-col items-center justify-center dark:bg-gray-950 p-1"
+                        className="w-full bg-white drop-shadow border border-slate-400 dark:border-white border-opacity-60 shadow-2xl rounded-2xl flex flex-col items-center justify-center dark:bg-gray-950 p-1"
                     >
                         {links.map((link, index) => (
                             <motion.div
@@ -80,14 +78,15 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
                                         {
                                             "text-gray-950 bg-slate-200 dark:text-gray-200 dark:bg-gray-700 rounded":
                                                 activeSection === link.hash,
-                                            "rounded-t-xl": index === 0,
-                                            "rounded-b-xl": index === links.length - 1,
+                                            "rounded-t-xl round": index === 0,
+                                            "rounded-b-xl round": index === links.length - 1,
                                         }
                                     )}
                                     href={link.hash}
                                     onClick={() => {
                                         setActiveSection(link.hash);
                                         setTimeOfLastClick(Date.now());
+                                        setIsOpen(false); // Close the menu on link click
                                     }}
                                 >
                                     {link.nameEng}
