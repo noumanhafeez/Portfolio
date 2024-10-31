@@ -9,7 +9,6 @@ import { Mail } from "lucide-react";
 import { motion } from "framer-motion"
 import { Fade } from "react-awesome-reveal";
 import { useSectionInView } from "@/lib/useInView";
-import { useActiveSectionContext } from "@/containers/active-section";
 
 export default function Intro() {
 
