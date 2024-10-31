@@ -2,6 +2,7 @@ import Providers from "@/containers/providers";
 import Navbar from "@/components/navbar";
 import ThemeSwitch from "@/components/theme-controller";
 import { Sora } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react"
 import "./globals.css";
 
 const sora = Sora({
@@ -28,6 +29,7 @@ export default function RootLayout({
                     <Navbar />
                     {children}
                     <ThemeSwitch />
+                    <Analytics/>
                 </Providers>
             </body>
         </html>
