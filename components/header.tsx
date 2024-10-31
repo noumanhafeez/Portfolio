@@ -5,7 +5,6 @@ import NextLink from "next/link";
 import clsx from "clsx";
 import { Link } from "@/lib/type";
 import { useActiveSectionContext } from "@/containers/active-section";
-import { Head } from "next/document";
 import { motion } from "framer-motion";
 
 

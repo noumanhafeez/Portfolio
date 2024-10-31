@@ -1,13 +1,12 @@
 "use client"
 
-import { DEFAULT_RUNTIME_WEBPACK } from "next/dist/shared/lib/constants";
 import React from "react";
-import { deflate } from "zlib";
 import SectionHeading from "./section-heading";
 import Image from "next/image";
 import { useSectionInView } from "@/lib/useInView";
 import { motion } from "framer-motion";
 import { Fade } from "react-awesome-reveal";
+
 export default function About() {
     const { ref } = useSectionInView("#about");
     return (

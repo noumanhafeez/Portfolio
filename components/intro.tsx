@@ -1,6 +1,5 @@
 "use client";
 
-import exp from "constants";
 import React from "react";
 import Link from 'next/link'
 import Image from 'next/image';
@@ -15,7 +14,7 @@ import { useActiveSectionContext } from "@/containers/active-section";
 export default function Intro() {
 
     const { ref } = useSectionInView("#home", 0.5);
-    const { setActiveSection, setTimeOfLastClick} = useActiveSectionContext()
+    //const { setActiveSection, setTimeOfLastClick} = useActiveSectionContext()
     return (
         <section  ref={ref} className=" mb-28 max-w-[75rem] text-center sm:mb-0" id="home">
             <div className="flex items-center justify-center">
