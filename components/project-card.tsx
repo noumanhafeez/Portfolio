@@ -10,6 +10,7 @@ export default function Project({
     description,
     tags,
     imageUrl,
+    link
 }: ProjectProps) {
     const ref = useRef<HTMLDivElement>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
@@ -55,6 +56,7 @@ export default function Project({
             }}
             className="group mb-3 sm:mb-8 last:mb-0"
         >
+            <a href={link} target="_blank" rel="noopener noreferrer">
             <section
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -133,6 +135,7 @@ export default function Project({
                     />
                 )}
             </section>
+            </a>
         </motion.div>
     );
 }
