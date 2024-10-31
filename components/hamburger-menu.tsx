@@ -76,7 +76,7 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ links }) => {
                         initial="start"
                         animate="visible"
                         exit={{ scale: 0.6, opacity: 0, y: -20 }} // Exit animation
-                        className="w-full bg-blue-500 drop-shadow border border-slate-400 dark:border-white border-opacity-60 shadow-2xl rounded-2xl flex flex-col items-center justify-center dark:bg-gray-950 p-1"
+                        className="w-full bg-white drop-shadow border border-slate-400 dark:border-white border-opacity-60 shadow-2xl rounded-2xl flex flex-col items-center justify-center dark:bg-gray-950 p-1"
                     >
                         {links.map((link, index) => (
                             <motion.div
