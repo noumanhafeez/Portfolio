@@ -106,7 +106,7 @@ export default function Project({
                         group-even:group-hover:translate-y-3
                         group-even:group-hover:rotate-2
                         group-even:right-[initial] 
-                        group-even:-left-40"
+                        group-even:-left-20"
                     >
                         <source
                             src={imageUrl}
@@ -114,6 +114,7 @@ export default function Project({
                         />
                         Your browser does not support the video tag.
                     </motion.video>
+                    
                 ) : (
                     <Image
                         src={imageUrl}
