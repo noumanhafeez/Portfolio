@@ -22,6 +22,14 @@ export const links: Link[] = [
 ];
 
 export const projectsData: ProjectInfo[] = [
+    
+    {
+        title: "Uber Clone App",
+        description: "I developed an UberClone application where I enjoyed working with Apple Maps for navigation and data integration using Redux for state management.",
+        tags: ["React Native", "React Navigation", "Redux", "React Native Maps",],
+        imageUrl: "/uber_trans.mp4",
+        link: "https://vimeo.com/1026401195?autoplay=1&muted=1&stream_id=Y2xpcHN8MjI5NzY3MjEwfGlkOmRlc2N8eyJyZW1vdmVfdm9kX3RpdGxlcyI6ZmFsc2V9"
+    },
     {
         title: "Coffee Shop App",
         description: "A React Native coffee shop app with smooth navigation and Redux for state management, and Immer for immutability.",
@@ -45,6 +53,7 @@ export const projectsData: ProjectInfo[] = [
     },
     
 ]
+
 
 
 export const skillsData = [
