@@ -7,6 +7,7 @@ import { BsLinkedin } from "react-icons/bs";
 import { FaGithubSquare } from "react-icons/fa";
 import { Mail } from "lucide-react";
 import { motion } from "framer-motion"
+import upwork from '../public/upwork.png'
 import { Fade } from "react-awesome-reveal";
 import { useSectionInView } from "@/lib/useInView";
 
@@ -76,14 +77,15 @@ export default function Intro() {
             className="flex sm:flex-row items-center justify-center
             gap-4 px-4 text-lg font-medium">
                 <Link 
-                href="https://mail.google.com/"
+                href="https://www.upwork.com/freelancers/~010b8f4f5e594bde3c?mp_source=share"
                 target="_blank"
                 className="group bg-gray-900 text-white px-7 py-3 flex
                 items-center gap-2 rounded-full outline-non focus:scale-110
                 hover:scale-110 hover:bg-gray-950 dark:bg-white/10 active:scale-150
                 transition"
                 >
-                    Connect <Mail color={"#9ca3af"}/>
+                    Hire Me!
+                    <img src='/upwork2.png' alt="Upwork" className="w-5 h-5" />
                 </Link>
                 <a
                 className="bg-gray-900 p-4 text-white flex items-center gap-2
@@ -96,7 +98,7 @@ export default function Intro() {
                 </a>
                 <a
                 className="bg-gray-900 p-4 text-white flex items-center gap-2
-                text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15]
+                rounded-full focus:scale-[1.15] hover:scale-[1.15]
                 active:scale-105 transition cursor-pointer borderblack
                 dark:bg-white/10 dark:text-white/60"
                 href="https://github.com/noumanhafeez"
