@@ -23,6 +23,13 @@ export const links: Link[] = [
 
 export const projectsData: ProjectInfo[] = [
     {
+        title: "Music Player.Apk",
+        description: "Click to access .apk file. It is safe to use. Note: The app size is around about 248 mb because I store my fav songs in Mood Screen.",
+        tags: ["React Native", "Expo", "Expo av", "Expo Build",],
+        imageUrl: "/musicPlayer.mp4",
+        link: "https://drive.google.com/drive/folders/1_0YjjIz8YB5D8bLcTOFizsq8SmRlXQuC?usp=drive_link"
+    },
+    {
         title: "Music Player",
         description: "I developed a custom music player app with built-in emotion-based song categories, allowing users to play, stop, and resume tracks seamlessly. Integrated features for liking songs and dynamic state management for a personalized experience.",
         tags: ["React Native", "Expo", "Expo av", "React Native Reanimated",],
