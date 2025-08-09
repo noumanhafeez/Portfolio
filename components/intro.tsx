@@ -1,10 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { BsLinkedin } from "react-icons/bs";
-import { FaGithubSquare } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Fade } from "react-awesome-reveal";
 import { useSectionInView } from "@/lib/useInView";
