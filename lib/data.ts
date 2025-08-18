@@ -33,7 +33,7 @@ export const projectsData: ProjectInfo[] = [
     title: "Deep Learning Specialization by Andrew Ng",
     description: "",
     tags: ["Certifications"],
-    imageUrl: "/deep_learning.png",
+    imageUrl: "/Deep_learning.png",
     link: "https://coursera.org/share/4cdb2ab9b6238c3ac01e0b9308ee2b6d"
     },
     {

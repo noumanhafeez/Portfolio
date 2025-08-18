@@ -5,6 +5,7 @@ import Project from "./project-card";
 import { projectsData } from "@/lib/data";
 
 const categories = [
+  "All Categories",
   "Certifications",
   "Coursera Projects",
   "Data Visualization",
