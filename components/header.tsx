@@ -18,27 +18,16 @@ export default function Header({ links }: HeaderProps) {
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="flex items-center justify-between px-6
-                   border border-white border-opacity-40 
-                   bg-white bg-opacity-80 shadow-lg shadow-white/30
-                   backdrop-blur-[0.5rem] h-20
-                   dark:bg-white dark:border-white/80 dark:bg-opacity-75"
+        className="flex items-center justify-center px-6
+         border border-yellow-500 border-opacity-40 
+         bg-yellow-900 bg-opacity-80 shadow-lg shadow-yellow-100/30
+         backdrop-blur-[0.5rem] h-20
+         dark:bg-yellow-500 dark:border-yellow-100 dark:bg-opacity-115"
       >
-        {/* Logo */}
-        <div
-          className="text-6xl font-extrabold 
-             bg-gradient-to-r from-gray-400 via-gray-800 to-gray-700 
-             bg-clip-text text-transparent
-             drop-shadow-[4px_4px_3px_rgba(0,0,0,0.5)]
-             -rotate-2"
-        >
-          N
-        </div>
-
         {/* Navigation */}
         <ul
           className="flex flex-wrap items-center gap-x-6 text-[0.9rem] 
-                     font-medium text-gray-100"
+                 font-medium text-gray-500 mx-auto"
         >
           {links.map((link) => (
             <motion.li
@@ -49,9 +38,9 @@ export default function Header({ links }: HeaderProps) {
             >
               <NextLink
                 className={clsx(
-                  "flex items-center px-3 py-2  transition dark:text-gray-500 dark:hover:text-yellow-200",
+                  "flex items-center px-3 py-2 transition dark:text-gray-800",
                   {
-                    " dark:text-gray-200": activeSection === link.hash,
+                    "dark:text-gray-500": activeSection === link.hash,
                   }
                 )}
                 href={link.hash}
@@ -69,7 +58,7 @@ export default function Header({ links }: HeaderProps) {
                       damping: 30,
                     }}
                     layoutId="activeSection"
-                    className="bg-gray-100 rounded-full absolute inset-0 -z-10"
+                    className="absolute inset-0 -z-10"
                   ></motion.span>
                 )}
               </NextLink>
