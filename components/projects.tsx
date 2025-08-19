@@ -24,7 +24,6 @@ export default function ProjectsSection() {
           )
         );
 
-  // categories you want to mark as "coming soon"
   const comingSoonCategories = ["Data Visualization", "Data Science"];
   const isComingSoon = comingSoonCategories.includes(activeCategory);
 
@@ -32,13 +31,13 @@ export default function ProjectsSection() {
     <section className="flex flex-col items-center min-h-[900px]">
       {/* Mini Nav */}
       <div className="relative w-full">
-        <div className="bg-yellow-400 w-full rounded-2xl shadow-md px-20">
-          <div className="flex justify-center space-x-12 py-4 font-bold text-xs uppercase tracking-wide">
+        <div className="bg-yellow-400 w-full rounded-2xl shadow-md px-4 sm:px-10">
+          <div className="flex flex-wrap sm:flex-nowrap justify-center sm:justify-between overflow-x-auto space-x-4 sm:space-x-8 py-3 font-bold text-xs sm:text-sm uppercase tracking-wide">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`transition-colors ${
+                className={`whitespace-nowrap transition-colors ${
                   activeCategory === cat
                     ? "text-pink-600"
                     : "text-black hover:text-gray-700"
@@ -52,7 +51,7 @@ export default function ProjectsSection() {
       </div>
 
       {/* Projects Grid / Coming Soon */}
-      <div className="w-full px-6 mt-8">
+      <div className="w-full px-4 sm:px-6 mt-8">
         {isComingSoon ? (
           <div className="flex justify-center items-center h-64">
             <p className="text-gray-600 text-lg font-medium animate-pulse">
