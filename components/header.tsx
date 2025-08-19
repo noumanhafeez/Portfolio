@@ -20,7 +20,7 @@ export default function Header({ links }: HeaderProps) {
         animate={{ y: 0, opacity: 1 }}
         className="flex items-center justify-center px-6
          border border-yellow-500 border-opacity-40 
-         bg-yellow-900 bg-opacity-80 shadow-lg shadow-yellow-100/30
+         bg-yellow-500 bg-opacity-80 shadow-lg 
          backdrop-blur-[0.5rem] h-20
          dark:bg-yellow-500 dark:border-yellow-100 dark:bg-opacity-115"
       >
@@ -40,7 +40,7 @@ export default function Header({ links }: HeaderProps) {
                 className={clsx(
                   "flex items-center px-3 py-2 transition dark:text-gray-800",
                   {
-                    "dark:text-gray-500": activeSection === link.hash,
+                    "dark:text-gray-800": activeSection === link.hash,
                   }
                 )}
                 href={link.hash}
