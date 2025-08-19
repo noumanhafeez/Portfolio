@@ -32,7 +32,7 @@ export default function ConnectWithMe() {
     },
     {
       name: "Medium",
-      url: "", // ✅ your Medium link here
+      url: "https://medium.com/@noumanhafeez095", // ✅ your Medium link here
       icon: <FaMedium size={28} />,
       color: "text-black",
     },
