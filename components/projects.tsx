@@ -28,11 +28,22 @@ export default function ProjectsSection() {
   const isComingSoon = comingSoonCategories.includes(activeCategory);
 
   return (
-    <section className="flex flex-col items-center min-h-[900px]">
+    <section className="flex flex-col items-center min-h-[900px] px-4 sm:px-6 max-w-[75rem] mx-auto scroll-mt-20">
       {/* Mini Nav */}
-      <div className="relative w-full">
-        <div className="bg-yellow-400 w-full rounded-2xl shadow-md px-4 sm:px-10">
-          <div className="flex flex-wrap sm:flex-nowrap justify-center sm:justify-between overflow-x-auto space-x-4 sm:space-x-8 py-3 font-bold text-xs sm:text-sm uppercase tracking-wide">
+      <div className="w-full mb-8">
+        <div
+          className="
+          relative
+          rounded-3xl
+          border border-teal-300/30
+          bg-gradient-to-br from-teal-100/40 via-sky-100/30 to-violet-100/20
+          backdrop-blur-xl backdrop-saturate-150
+          shadow-[0_20px_60px_rgba(56,189,248,0.25)]
+          px-6 py-4
+          flex justify-center overflow-x-auto
+        "
+        >
+          <div className="flex flex-wrap sm:flex-nowrap justify-center sm:justify-between space-x-4 sm:space-x-8 font-bold text-xs sm:text-sm uppercase tracking-wide">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -47,11 +58,13 @@ export default function ProjectsSection() {
               </button>
             ))}
           </div>
+          {/* Glass highlight overlay */}
+          <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-b from-white/40 to-transparent opacity-20" />
         </div>
       </div>
 
       {/* Projects Grid / Coming Soon */}
-      <div className="w-full px-4 sm:px-6 mt-8">
+      <div className="w-full">
         {isComingSoon ? (
           <div className="flex justify-center items-center h-64">
             <p className="text-gray-600 text-lg font-medium animate-pulse">
@@ -61,7 +74,23 @@ export default function ProjectsSection() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProjects.map((project, index) => (
-              <Project key={index} {...project} />
+              <div
+                key={index}
+                className="
+                  relative
+                  rounded-3xl
+                  border border-teal-200/30
+                  bg-gradient-to-br from-white/30 via-white/20 to-white/10
+                  backdrop-blur-xl backdrop-saturate-150
+                  shadow-[0_20px_60px_rgba(56,189,248,0.15)]
+                  overflow-hidden
+                  transition-transform hover:scale-[1.02]
+                "
+              >
+                <Project {...project} />
+                {/* Glass highlight */}
+                <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-b from-white/40 to-transparent opacity-20" />
+              </div>
             ))}
           </div>
         )}
