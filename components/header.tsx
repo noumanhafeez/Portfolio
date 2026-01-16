@@ -14,55 +14,88 @@ export default function Header({ links }: HeaderProps) {
     useActiveSectionContext();
 
   return (
-    <header className="fixed z-[999] w-full">
+    <header className="fixed top-4 z-[999] w-full flex justify-center">
       <motion.div
-        initial={{ y: -100, opacity: 0 }}
+        initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="flex items-center justify-center px-6
-         border border-yellow-500 border-opacity-40 
-         bg-yellow-500 bg-opacity-80 shadow-lg 
-         backdrop-blur-[0.5rem] h-20
-         dark:bg-yellow-500 dark:border-yellow-100 dark:bg-opacity-115"
+        transition={{ type: "spring", stiffness: 120, damping: 20 }}
+        className="
+          relative
+          px-8
+          h-16
+          flex items-center
+          rounded-2xl
+          border border-sky-200/30
+          bg-gradient-to-br
+          from-sky-100/40
+          via-cyan-100/20
+          to-white/10
+          backdrop-blur-xl backdrop-saturate-150
+          shadow-[0_20px_50px_rgba(0,0,0,0.18)]
+        "
       >
+        {/* Inner glass highlight */}
+        <div
+          className="
+            pointer-events-none
+            absolute inset-0
+            rounded-2xl
+            bg-gradient-to-b from-white/50 to-transparent
+            opacity-25
+          "
+        />
+
         {/* Navigation */}
         <ul
-          className="flex flex-wrap items-center gap-x-6 text-[0.9rem] 
-                 font-medium text-gray-500 mx-auto"
+          className="
+            relative
+            flex items-center gap-x-6
+            text-[0.9rem]
+            font-medium
+            text-slate-700
+          "
         >
           {links.map((link) => (
-            <motion.li
-              key={link.hash}
-              initial={{ y: -100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              className="relative"
-            >
+            <li key={link.hash} className="relative">
               <NextLink
-                className={clsx(
-                  "flex items-center px-3 py-2 transition dark:text-gray-800",
-                  {
-                    "dark:text-gray-800": activeSection === link.hash,
-                  }
-                )}
                 href={link.hash}
                 onClick={() => {
                   setActiveSection(link.hash);
                   setTimeOfLastClick(Date.now());
                 }}
+                className={clsx(
+                  "relative px-4 py-2 transition-colors",
+                  activeSection === link.hash
+                    ? "text-slate-900"
+                    : "hover:text-sky-700"
+                )}
               >
                 {link.nameEng}
-                {link.hash === activeSection && (
+
+                {/* Active Liquid Pill */}
+                {activeSection === link.hash && (
                   <motion.span
+                    layoutId="activeSection"
                     transition={{
                       type: "spring",
-                      stiffness: 400,
-                      damping: 30,
+                      stiffness: 380,
+                      damping: 28,
                     }}
-                    layoutId="activeSection"
-                    className="absolute inset-0 -z-10"
-                  ></motion.span>
+                    className="
+                      absolute inset-0 -z-10
+                      rounded-xl
+                      bg-gradient-to-br
+                      from-white/70
+                      via-sky-100/50
+                      to-cyan-100/30
+                      backdrop-blur-md
+                      border border-white/40
+                      shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),0_8px_20px_rgba(0,0,0,0.18)]
+                    "
+                  />
                 )}
               </NextLink>
-            </motion.li>
+            </li>
           ))}
         </ul>
       </motion.div>
