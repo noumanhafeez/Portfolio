@@ -19,11 +19,18 @@ export default function RootLayout({
   return (
     <html lang="en" className="!scroll-smooth">
       <body
-        className={`${sora.variable} font-Sora flex flex-col bg-gray-50 text-gray-950 relative dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 antialiased`}
+        className={`${sora.variable} font-Sora flex flex-col bg-gray-50 text-gray-950 relative dark:text-gray-50 dark:text-opacity-90 antialiased`}
       >
         <div
-          className="bg-gradient-to-tr from-[#f5f7fa] via-[#e6f3ff] to-[#ffffff] 
-    absolute top-0 right-0 flex-1 -z-[10] h-full w-full"
+          className="
+    absolute inset-0 -z-[10]
+    bg-gradient-to-r
+    from-[#CDB4DB]
+    via-[#FFC8DD]
+    via-[#FFAFCC]
+    via-[#BDE0FE]
+    to-[#A2D2FF]
+  "
         ></div>
 
         <Providers>
