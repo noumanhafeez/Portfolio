@@ -1,18 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/useInView";
 import SectionHeading from "./section-heading";
 import { FaLinkedin, FaGithub, FaMedium, FaTwitter } from "react-icons/fa";
-
-const fadeInAnimationVariants = {
-  initial: { opacity: 0, y: 50 },
-  animate: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: 0.05 * index },
-  }),
-};
 
 export default function ConnectWithMe() {
   const { ref } = useSectionInView("#connect");
@@ -53,16 +43,8 @@ export default function ConnectWithMe() {
       <SectionHeading>Connect With Me</SectionHeading>
 
       <ul className="flex flex-wrap justify-center gap-6">
-        {links.map((link, index) => (
-          <motion.li
-            key={link.name}
-            variants={fadeInAnimationVariants}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            custom={index}
-          >
-            {/* Liquid Glass Card */}
+        {links.map((link) => (
+          <li key={link.name}>
             <div
               onClick={() => window.open(link.url, "_blank")}
               className="
@@ -79,7 +61,10 @@ export default function ConnectWithMe() {
               "
             >
               {/* Glass highlight */}
-              <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-b from-white/50 to-transparent opacity-20" />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-b from-white/50 to-transparent opacity-20"
+              />
 
               {/* Content */}
               <div
@@ -89,7 +74,7 @@ export default function ConnectWithMe() {
                 <span className="text-lg font-medium">{link.name}</span>
               </div>
             </div>
-          </motion.li>
+          </li>
         ))}
       </ul>
     </section>
