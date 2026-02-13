@@ -67,7 +67,7 @@ export default function Header({ links }: HeaderProps) {
                   "relative px-4 py-2 transition-colors",
                   activeSection === link.hash
                     ? "text-slate-900"
-                    : "hover:text-sky-700"
+                    : "hover:text-sky-700",
                 )}
               >
                 {link.nameEng}
