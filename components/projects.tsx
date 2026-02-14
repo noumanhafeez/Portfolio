@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { projectsData } from "@/lib/data";
 
+// Here. I'll implement some ML and NLP,CV projects in the future.
 const categories = [
   "Certifications",
   "Coursera Projects",
