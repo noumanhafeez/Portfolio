@@ -12,6 +12,7 @@ export default function About() {
       ref={ref}
       className="mb-28 max-w-[75rem] mx-auto scroll-mt-20 px-4"
     >
+      {/* Glassmorphism Container */}
       <div
         className="
           relative rounded-3xl
