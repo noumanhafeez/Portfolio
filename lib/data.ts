@@ -121,6 +121,13 @@ export const projectsData: ProjectInfo[] = [
     link: "https://coursera.org/share/f6fa0cdc5277bf85cb024b7e96c8bce9"
     },
     {
+  title: "PDF Chat Assistant – Retrieval-Augmented Generation (RAG) System",
+  description: "Built an end-to-end Retrieval-Augmented Generation (RAG) system that enables users to upload PDF documents and interact with them via a conversational AI interface. Implemented text extraction, semantic chunking, and embedding-based retrieval to enable context-aware question answering. Integrated a vector search engine for efficient document retrieval and developed a modular FastAPI backend with structured logging and a service-oriented architecture.",
+  tags: ["nlp", "rag", "information retrieval", "vector database", "semantic search", "fastapi", "python", "machine learning", "mlops"],
+  imageUrl: "/rag-project.png",
+  link: "https://github.com/noumanhafeez/pdf-chat-assistant"
+},
+    {
     title: "Production MLOps Pipeline for CNN ",
     description: "End-to-end MLOps pipeline for training, deploying, and monitoring CNN models in production with configurable YAML settings, using MLflow, Docker, and FastAPI.",
     tags: ["mlops", "deep learning", "mlflow", "configuration", "CI/CD", "docker", "FASTAPI"],
