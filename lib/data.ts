@@ -132,7 +132,7 @@ export const projectsData: ProjectInfo[] = [
     description: "End-to-end MLOps pipeline for predicting house prices, with configurable YAML-based settings, model training, deployment, and monitoring using MLflow, Docker, and Flask.",
     tags: ["mlops", "machine learning", "mlflow", "configuration", "CI/CD", "docker", "FLASK"],
     imageUrl: "/coursera.png",
-    link: "https://github.com/noumanhafeez/production-house-prices-mlops-pipeline"
+    link: "https://github.com/noumanhafeez/production-ml-pipeline-house-prices"
     },
     {
     "title": "N-gram Language Model & Sentence Generator (School Assignment)",
@@ -140,7 +140,14 @@ export const projectsData: ProjectInfo[] = [
     "tags": ["mlops", "nlp", "language modeling", "text generation", "perplexity", "data science", "python"],
     "imageUrl": "/ngram.png",
     "link": "https://github.com/noumanhafeez/ml-ds-assignment-2"
-    }
+    },
+    {
+    "title": "Decision Trees & Linear Regression from Scratch (School Assignment)",
+    "description": "Developed production-grade implementations of Decision Tree (classification/regression) and Linear Regression models using only NumPy, without scikit-learn dependencies. Featured modular architecture with dedicated modules for each algorithm, comprehensive logging in standard format (e.g., JSON-structured logs for training metrics, errors), and evaluation metrics like MSE, accuracy, and feature importance visualization.",
+    "tags": ["machine-learning", "algorithms", "numpy", "decision-trees", "linear-regression", "from-scratch", "mlops", "python", "data-science"],
+    "imageUrl": "/scratch-ml.png",
+    "link": "https://github.com/noumanhafeez/scratch-ml-core"
+}
 ]
 
 
