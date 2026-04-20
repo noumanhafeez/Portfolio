@@ -102,7 +102,7 @@ export const projectsData: ProjectInfo[] = [
     {
     title: "Neural Network Visualizer",
     description: "",
-    tags: ["Coursera Projects"],
+    tags: ["Certifications"],
     imageUrl: "/coursera.png",
     link: "https://coursera.org/share/d4065f9510248ce941ffff73b9f85b09"
     },
@@ -116,7 +116,7 @@ export const projectsData: ProjectInfo[] = [
     {
     title: "Accident Visualization Using Streamlit",
     description: "",
-    tags: ["Coursera Projects"],
+    tags: ["Certifications"],
     imageUrl: "/coursera.png",
     link: "https://coursera.org/share/f6fa0cdc5277bf85cb024b7e96c8bce9"
     },

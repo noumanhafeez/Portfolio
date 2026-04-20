@@ -3,14 +3,13 @@
 import { useState, useMemo, useEffect } from "react";
 import { projectsData } from "@/lib/data";
 
-// Simple filters
-const filters = ["Certifications", "Machine Learning", "MLOps"];
+// Only two filters
+const filters = ["Certifications", "Projects"];
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState(filters[0]);
   const [showToast, setShowToast] = useState(false);
 
-  // Filtered projects
   const filteredProjects = useMemo(() => {
     return projectsData.filter((project) => {
       const tags = project.tags.map((tag) => tag.toLowerCase());
@@ -19,27 +18,18 @@ export default function ProjectsSection() {
         return tags.includes("certifications");
       }
 
-      if (activeFilter === "Machine Learning") {
-        return (
-          tags.includes("machine learning") ||
-          tags.includes("nlp") ||
-          tags.includes("deep learning")
-        );
-      }
-
-      if (activeFilter === "MLOps") {
-        return tags.includes("mlops");
+      if (activeFilter === "Projects") {
+        return !tags.includes("certifications");
       }
 
       return true;
     });
   }, [activeFilter]);
 
-  // Toast for MLOps
   useEffect(() => {
-    if (activeFilter === "MLOps") {
+    if (activeFilter === "Projects") {
       setShowToast(true);
-      const timer = setTimeout(() => setShowToast(false), 4000);
+      const timer = setTimeout(() => setShowToast(false), 10000);
       return () => clearTimeout(timer);
     } else {
       setShowToast(false);
@@ -47,79 +37,139 @@ export default function ProjectsSection() {
   }, [activeFilter]);
 
   return (
-    <section className="relative flex flex-col items-center min-h-[700px] px-4 sm:px-6 max-w-[80rem] mx-auto scroll-mt-20 mb-32">
-
+    <section className="relative max-w-[80rem] mx-auto scroll-mt-20 mb-32 px-4 sm:px-6 font-sans">
       {/* Toast */}
       {showToast && (
-        <div className="fixed top-6 right-6 max-w-xs bg-white/30 backdrop-blur-lg border border-white/30 text-slate-900 px-6 py-4 rounded-2xl shadow-2xl z-50">
-          🚀 More MLOps projects coming soon!
-        </div>
-      )}
-
-      {/* Filter Tabs */}
-      <div className="w-full mb-12 flex justify-center gap-4 flex-wrap">
-        {filters.map((filter) => (
-          <button
-            key={filter}
-            onClick={() => setActiveFilter(filter)}
-            className={`px-5 py-2 rounded-2xl font-semibold text-sm transition-all ${
-              activeFilter === filter
-                ? "bg-white/20 border border-white/30 text-pink-600 shadow-2xl"
-                : "bg-white/10 text-gray-700 hover:bg-white/20 hover:text-pink-600"
-            }`}
-          >
-            {filter}
-          </button>
-        ))}
-      </div>
-
-      {/* Projects */}
-      {filteredProjects.length === 0 ? (
-        <div className="h-64 flex items-center">
-          <p className="text-gray-600 animate-pulse">
-            🚧 No projects found for {activeFilter}
+        <div className="fixed top-6 right-6 max-w-sm rounded-2xl border border-white/20 bg-white/30 backdrop-blur-2xl shadow-[0_30px_90px_rgba(0,0,0,0.15)] px-5 py-4 z-50">
+          <p className="text-sm font-semibold text-slate-900">Projects Hub</p>
+          <p className="mt-2 text-sm text-slate-700 leading-relaxed">
+            A collection of work across software engineering and AI/ML.
+          </p>
+          <p className="mt-2 text-sm text-slate-700 leading-relaxed">
+            More builds are actively in progress — new work gets added
+            regularly.
+          </p>
+          <p className="mt-3 text-xs text-slate-500 tracking-wide">
+            Exploring, building, and iterating over time.
           </p>
         </div>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-          {filteredProjects.map((project, idx) => (
-            <div
-              key={idx}
-              className="rounded-2xl border bg-white/30 backdrop-blur-xl shadow-lg hover:shadow-2xl transition-all p-6"
-            >
-              <h3 className="text-lg font-bold text-slate-900">
-                {project.title}
-              </h3>
-
-              {project.description && (
-                <p className="text-sm text-gray-700 line-clamp-3">
-                  {project.description}
-                </p>
-              )}
-
-              <div className="flex flex-wrap gap-2 mt-3">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs px-2 py-1 rounded-full bg-white/20 text-pink-700"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <div className="mt-4">
-                <button
-                  onClick={() => window.open(project.link, "_blank")}
-                  className="text-sm font-semibold bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-lg"
-                >
-                  View Project
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
       )}
+
+      {/* Title */}
+      <div className="text-center mb-10">
+        <h2 className="text-4xl font-semibold tracking-tight">
+          <span className="bg-gradient-to-r from-sky-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent">
+            Projects
+          </span>
+        </h2>
+      </div>
+
+      {/* Glass Container */}
+      <div
+        className="
+          relative
+          rounded-3xl
+          border border-white/20
+          bg-gradient-to-br from-sky-100/40 via-white/30 to-violet-100/30
+          backdrop-blur-2xl backdrop-saturate-150
+          shadow-[0_40px_120px_rgba(0,0,0,0.12)]
+          px-8 py-10
+        "
+      >
+        {/* soft highlight */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-b from-white/70 to-transparent opacity-30"
+        />
+
+        <div className="relative z-10">
+          {/* Filters */}
+          <div className="flex justify-center gap-4 flex-wrap mb-10">
+            {filters.map((filter) => (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(filter)}
+                className={`
+                  px-5 py-2 rounded-2xl text-sm font-medium transition-all
+                  border backdrop-blur-xl
+                  ${
+                    activeFilter === filter
+                      ? "bg-white/30 border-white/30 text-slate-900 shadow-lg"
+                      : "bg-white/10 border-white/10 text-slate-600 hover:bg-white/20 hover:text-slate-900"
+                  }
+                `}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+
+          {/* Projects Grid */}
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProjects.map((project, idx) => (
+              <div
+                key={idx}
+                className="
+                    relative
+                    rounded-2xl
+                    border border-white/20
+                    bg-white/20
+                    backdrop-blur-xl
+                    shadow-[0_20px_60px_rgba(0,0,0,0.10)]
+                    p-6
+                    transition-transform duration-300 hover:scale-[1.02]
+                  "
+              >
+                <h3 className="text-lg font-semibold text-slate-900">
+                  {project.title}
+                </h3>
+
+                {project.description && (
+                  <p className="text-sm text-slate-600 mt-2 line-clamp-3 leading-relaxed">
+                    {project.description}
+                  </p>
+                )}
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="
+                          text-xs px-3 py-1 rounded-full
+                          bg-white/20 border border-white/20
+                          text-slate-700
+                        "
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Button */}
+                <div className="mt-5">
+                  <button
+                    onClick={() => window.open(project.link, "_blank")}
+                    className="
+                        text-sm font-medium
+                        bg-gradient-to-r from-sky-500 to-indigo-500
+                        hover:from-sky-600 hover:to-indigo-600
+                        text-white
+                        px-4 py-2
+                        rounded-xl
+                        shadow-md
+                        transition
+                      "
+                  >
+                    View Project
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
