@@ -15,31 +15,41 @@ export default function Intro() {
         className="
           relative
           rounded-3xl
-          border border-teal-300/40
-          bg-gradient-to-br from-teal-100/60 via-sky-200/40 to-violet-200/30
-          backdrop-blur-xl backdrop-saturate-150
-          shadow-[0_30px_90px_rgba(56,189,248,0.35)]
+          border border-white/20
+          bg-gradient-to-br from-sky-100/40 via-white/30 to-violet-100/30
+          backdrop-blur-2xl backdrop-saturate-150
+          shadow-[0_40px_120px_rgba(0,0,0,0.12)]
           px-10 py-14
           text-center
+          font-sans
         "
       >
-        {/* Glass highlight */}
+        {/* soft highlight layer */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-b from-white/70 to-transparent opacity-25"
+          className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-b from-white/70 to-transparent opacity-30"
         />
 
-        <h1 className="relative z-10 mb-8">
-          <span className="block text-4xl sm:text-5xl font-playfair font-bold tracking-tight text-slate-900">
-            Nouman Hafeez
-          </span>
+        <div className="relative z-10">
+          {/* Name */}
+          <h1 className="text-5xl sm:text-6xl font-semibold tracking-tight">
+            <span className="bg-gradient-to-r from-sky-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent">
+              Nouman Hafeez
+            </span>
+          </h1>
 
-          <p className="mt-8 max-w-3xl mx-auto text-[17px] font-inter font-medium text-slate-800 leading-relaxed">
+          {/* Description */}
+          <p className="mt-8 max-w-3xl mx-auto text-[17px] text-slate-700 leading-relaxed">
             Hello! Glad to see you here. This is a collection of my personal
-            projects created during my MS studies, combining what I learned in
-            class with my own curiosity and creativity.
+            projects during my MS studies — combining academic learning with
+            curiosity, experimentation, and real-world building.
           </p>
-        </h1>
+
+          {/* Tags */}
+          <p className="mt-5 text-xs tracking-[0.25em] text-slate-500 uppercase">
+            software · ai/ml · systems · exploration
+          </p>
+        </div>
       </div>
     </section>
   );
