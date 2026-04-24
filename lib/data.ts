@@ -121,6 +121,13 @@ export const projectsData: ProjectInfo[] = [
     link: "https://coursera.org/share/f6fa0cdc5277bf85cb024b7e96c8bce9"
     },
     {
+  title: "Sentiment Analysis using BERT – NLP Classification System",
+  description: "Built an end-to-end sentiment analysis system using a fine-tuned BERT transformer model for binary text classification. Trained the model on IMDb review data to classify user sentiment as positive or negative with confidence scoring. Developed a modular FastAPI backend with REST APIs, single-text prediction, bulk file upload analysis (CSV, JSON, TXT), interactive frontend rendering, and analytics visualization for sentiment distribution.",
+  tags: ["nlp", "bert", "transformers", "sentiment analysis", "text classification", "fastapi", "python", "machine learning", "deep learning", "pytorch"],
+  imageUrl: "/sentiment-analysis.png",
+  link: "https://github.com/noumanhafeez/sentiment-analysis-bert"
+},
+    {
   title: "PDF Chat Assistant – Retrieval-Augmented Generation (RAG) System",
   description: "Built an end-to-end Retrieval-Augmented Generation (RAG) system that enables users to upload PDF documents and interact with them via a conversational AI interface. Implemented text extraction, semantic chunking, and embedding-based retrieval to enable context-aware question answering. Integrated a vector search engine for efficient document retrieval and developed a modular FastAPI backend with structured logging and a service-oriented architecture.",
   tags: ["nlp", "rag", "information retrieval", "vector database", "semantic search", "fastapi", "python", "machine learning", "mlops"],
