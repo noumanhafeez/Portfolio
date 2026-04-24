@@ -65,17 +65,7 @@ export default function ProjectsSection() {
       </div>
 
       {/* Glass Container */}
-      <div
-        className="
-          relative
-          rounded-3xl
-          border border-white/20
-          bg-gradient-to-br from-sky-100/40 via-white/30 to-violet-100/30
-          backdrop-blur-2xl backdrop-saturate-150
-          shadow-[0_40px_120px_rgba(0,0,0,0.12)]
-          px-8 py-10
-        "
-      >
+      <div className="relative rounded-3xl border border-white/20 bg-gradient-to-br from-sky-100/40 via-white/30 to-violet-100/30 backdrop-blur-2xl backdrop-saturate-150 shadow-[0_40px_120px_rgba(0,0,0,0.12)] px-8 py-10">
         {/* soft highlight */}
         <div
           aria-hidden
@@ -105,68 +95,51 @@ export default function ProjectsSection() {
           </div>
 
           {/* Projects Grid */}
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, idx) => (
-              <div
-                key={idx}
-                className="
-                    relative
-                    rounded-2xl
-                    border border-white/20
-                    bg-white/20
-                    backdrop-blur-xl
-                    shadow-[0_20px_60px_rgba(0,0,0,0.10)]
-                    p-6
-                    transition-transform duration-300 hover:scale-[1.02]
-                  "
-              >
-                <h3 className="text-lg font-semibold text-slate-900">
-                  {project.title}
-                </h3>
+            {filteredProjects.map((project, idx) => {
+              const isCertification = project.tags
+                .map((tag) => tag.toLowerCase())
+                .includes("certifications");
 
-                {project.description && (
-                  <p className="text-sm text-slate-600 mt-2 line-clamp-3 leading-relaxed">
-                    {project.description}
-                  </p>
-                )}
+              return (
+                <div
+                  key={idx}
+                  className="relative rounded-2xl border border-white/20 bg-white/20 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.10)] p-6 transition-transform duration-300 hover:scale-[1.02]"
+                >
+                  <h3 className="text-lg font-semibold text-slate-900">
+                    {project.title}
+                  </h3>
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mt-4">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="
-                          text-xs px-3 py-1 rounded-full
-                          bg-white/20 border border-white/20
-                          text-slate-700
-                        "
+                  {project.description && (
+                    <p className="text-sm text-slate-600 mt-2 line-clamp-3 leading-relaxed">
+                      {project.description}
+                    </p>
+                  )}
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs px-3 py-1 rounded-full bg-white/20 border border-white/20 text-slate-700"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Button */}
+                  <div className="mt-5">
+                    <button
+                      onClick={() => window.open(project.link, "_blank")}
+                      className="text-sm font-medium bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-600 text-white px-4 py-2 rounded-xl shadow-md transition"
                     >
-                      {tag}
-                    </span>
-                  ))}
+                      {isCertification ? "View Certificate" : "View Project"}
+                    </button>
+                  </div>
                 </div>
-
-                {/* Button */}
-                <div className="mt-5">
-                  <button
-                    onClick={() => window.open(project.link, "_blank")}
-                    className="
-                        text-sm font-medium
-                        bg-gradient-to-r from-sky-500 to-indigo-500
-                        hover:from-sky-600 hover:to-indigo-600
-                        text-white
-                        px-4 py-2
-                        rounded-xl
-                        shadow-md
-                        transition
-                      "
-                  >
-                    View Project
-                  </button>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
